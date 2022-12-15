@@ -5,6 +5,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.room.Room
 import com.tispunshahryar960103.notes.data.AppDatabase
 import com.tispunshahryar960103.notes.data.NoteDAO
+import com.tispunshahryar960103.notes.repository.NoteDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,6 +24,7 @@ object AppModule {
 
         return Room.databaseBuilder(appContext,AppDatabase::class.java, "note_db")
             .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
             .build()
 
     }
@@ -30,6 +32,7 @@ object AppModule {
     @Singleton
     @Provides
     fun getNoteDAO(db : AppDatabase) = db.noteDAO()
+
 
 
 

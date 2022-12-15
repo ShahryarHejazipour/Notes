@@ -38,14 +38,14 @@ fun SplashScreen(navController: NavController) {
         delay(2000)
 
         //todo : handling this feature below
-        val isLoggedIn = false
+        val isLoggedIn = true
         if (isLoggedIn){
 
             navController.navigate(NoteScreens.NoteListScreen.name)
 
         }else{
 
-            navController.navigate(NoteScreens.LoginScreen.name)
+            navController.navigate(NoteScreens.NoteScreen.name)
 
         }
 
